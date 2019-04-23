@@ -29,7 +29,6 @@ public class ArtistProxy extends ProxyConfiguration implements IArtistProxy {
 
 
         String request = MessageFormat.format(url, apiKey, artistName);
-        System.out.println("#################  "+request);
 
         ResponseEntity<String> response = restTemplate.getForEntity(request, String.class);
 

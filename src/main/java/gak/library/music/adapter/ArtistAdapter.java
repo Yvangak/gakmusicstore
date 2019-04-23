@@ -10,9 +10,8 @@ import java.io.IOException;
 
 public class ArtistAdapter {
 
-    private static ObjectMapper mapper = new ObjectMapper();
-
     public static Artist convertToArtist(String result) {
+        ObjectMapper mapper = new ObjectMapper();
         try {
             JsonNode jsonNode = mapper.readTree(result);
             if (jsonNode != null) {

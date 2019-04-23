@@ -4,28 +4,28 @@ import java.util.Objects;
 
 public final class ErrorResponseEntity {
 
-    private String errorCode;
-    private String errorMessage;
     private String errorType;
+    private String uri;
+    private String errorMessage;
     private long errorTimeStamp;
 
-    public ErrorResponseEntity(String errorCode, String errorMessage, String errorType, long errorTimeStamp) {
-        this.errorCode = errorCode;
-        this.errorMessage = errorMessage;
+    public ErrorResponseEntity(String errorType, String uri, String errorMessage, long errorTimeStamp) {
         this.errorType = errorType;
+        this.uri = uri;
+        this.errorMessage = errorMessage;
         this.errorTimeStamp = errorTimeStamp;
-    }
-
-    public String getErrorCode() {
-        return errorCode;
-    }
-
-    public String getErrorMessage() {
-        return errorMessage;
     }
 
     public String getErrorType() {
         return errorType;
+    }
+
+    public String getUri() {
+        return uri;
+    }
+
+    public String getErrorMessage() {
+        return errorMessage;
     }
 
     public long getErrorTimeStamp() {
@@ -38,13 +38,13 @@ public final class ErrorResponseEntity {
         if (o == null || getClass() != o.getClass()) return false;
         ErrorResponseEntity that = (ErrorResponseEntity) o;
         return errorTimeStamp == that.errorTimeStamp &&
-                Objects.equals(errorCode, that.errorCode) &&
-                Objects.equals(errorMessage, that.errorMessage) &&
-                Objects.equals(errorType, that.errorType);
+                Objects.equals(errorType, that.errorType) &&
+                Objects.equals(uri, that.uri) &&
+                Objects.equals(errorMessage, that.errorMessage);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(errorCode, errorMessage, errorType, errorTimeStamp);
+        return Objects.hash(errorType, uri, errorMessage, errorTimeStamp);
     }
 }

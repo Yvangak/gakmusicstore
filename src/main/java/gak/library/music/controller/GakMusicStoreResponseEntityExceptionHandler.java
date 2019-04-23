@@ -22,7 +22,7 @@ public class GakMusicStoreResponseEntityExceptionHandler extends ResponseEntityE
         ErrorResponseEntity errorResponseEntity = new ErrorResponseEntity(
                 HttpStatus.NOT_FOUND.toString(),
                 request.getDescription(false),
-                "ARTIST NOT FOUND",
+                ex.getMessage(),
                 new Date().getTime());
 
         return new ResponseEntity<>(errorResponseEntity, HttpStatus.NOT_FOUND);
@@ -33,7 +33,7 @@ public class GakMusicStoreResponseEntityExceptionHandler extends ResponseEntityE
         ErrorResponseEntity errorResponseEntity = new ErrorResponseEntity(
                 HttpStatus.EXPECTATION_FAILED.toString(),
                 request.getDescription(false),
-                "CORRUPTED RESULT",
+                ex.getMessage(),
                 new Date().getTime()
         );
 
@@ -45,7 +45,7 @@ public class GakMusicStoreResponseEntityExceptionHandler extends ResponseEntityE
         ErrorResponseEntity errorResponseEntity = new ErrorResponseEntity(
                 HttpStatus.INTERNAL_SERVER_ERROR.toString(),
                 request.getDescription(false),
-                "INTERNAL SERVER ERROR",
+                ex.getMessage(),
                 new Date().getTime()
         );
 
